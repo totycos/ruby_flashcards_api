@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+# Module to fix ActionDispatch::Request::Session::DisabledSessionError
 module RackSessionsFix
   extend ActiveSupport::Concern
 
+  # Create fake rack sessions
   class FakeRackSession < Hash
     def enabled?
       false
